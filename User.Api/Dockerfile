@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["User.Api.csproj", "User.Api/"]
 RUN dotnet restore "User.Api/User.Api.csproj"
 COPY . .
-WORKDIR "/src/User.Api"
+WORKDIR "/src"
 RUN dotnet build "User.Api/User.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
