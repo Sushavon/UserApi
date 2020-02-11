@@ -9,8 +9,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["User.Api.csproj", "User.Api/"]
 RUN dotnet restore "User.Api/User.Api.csproj"
-COPY . .
+
 WORKDIR "/src/User.Api"
+COPY . .
 RUN dotnet build "User.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
