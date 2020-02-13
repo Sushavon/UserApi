@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: userapi 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: userapi 
+    spec:
+      containers:
+        - name: userapi 
+          image: zydusfrontlinecontainerregistry.azurecr.io/userapi
+          ports:
+          - containerPort: 80
