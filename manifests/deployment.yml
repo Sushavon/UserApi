@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: sushavonuserapi 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sushavonuserapi 
+    spec:
+      containers:
+        - name: sushavonuserapi 
+          image: zydusfrontlinecontainerregistry.azurecr.io/sushavonuserapi
+          ports:
+          - containerPort: 80
