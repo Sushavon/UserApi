@@ -21,21 +21,28 @@ namespace User.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            _logger.LogInformation("Start: Getting user information");
             return Ok(GetDummyUsers());
         }
 
         public IEnumerable<User> GetDummyUsers()
         {
-            var users = new List<User>();
-
-            var user = new User
+            var users = new List<User>()
             {
-                Id = 1,
-                Name = "Rakesh",
-                Email = "rakesh.jha@zydus.in"
+                new User
+                {
+                    Id = 1,
+                    Name = "Rakesh",
+                    Email = "rakesh.jha@zydus.in"
+                },
+                new User
+                {
+                    Id = 2,
+                    Name = "Ramesh",
+                    Email = "ramesh.jha@zydus.in"
+                }
             };
 
-            users.Add(user);
             return users;
         }
     }
